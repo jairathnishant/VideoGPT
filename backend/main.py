@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 # Import Google API client for YouTube integration
 from googleapiclient.discovery import build
 
+from fastapi.middleware.cors import CORSMiddleware
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -99,3 +101,11 @@ def chat(req: ChatRequest):
         "query": req.message,
         "results": top5
     }
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
