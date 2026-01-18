@@ -1,6 +1,6 @@
-# YouTube GPT
+# Video GPT
 
-A full-stack application that integrates YouTube search functionality with an AI-powered backend API. This project enables users to search for YouTube videos through a chat-like interface and retrieve detailed video information.
+A full-stack application that integrates video search functionality with an AI-powered backend API. This project enables users to search for videos across multiple platforms through a chat-like interface and retrieve detailed video information.
 
 ## Project Structure
 
@@ -18,7 +18,7 @@ ytgpt/
 
 ## Features
 
-- **YouTube Search API Integration**: Search YouTube videos using the official YouTube Data API
+- **Video Search API Integration**: Search videos across multiple platforms
 - **FastAPI Backend**: Modern, high-performance Python web framework
 - **RESTful Chat Endpoint**: `/chat` endpoint for processing user queries
 - **Video Information Extraction**: Retrieves comprehensive video metadata including:
@@ -30,7 +30,7 @@ ytgpt/
 ## Prerequisites
 
 - Python 3.8+
-- YouTube Data API key (from [Google Cloud Console](https://console.cloud.google.com/))
+- Video platform API keys (e.g., YouTube Data API from [Google Cloud Console](https://console.cloud.google.com/))
 - pip or conda package manager
 
 ## Installation
@@ -78,18 +78,21 @@ Copy the example configuration file:
 cp .env.example .env
 ```
 
-Edit `.env` and add your YouTube API key:
+Edit `.env` and add your video platform API keys:
 ```
 YOUTUBE_API_KEY=your_api_key_here
 ```
 
-## Getting Your YouTube API Key
+## Getting Your Video Platform API Keys
 
+### YouTube Data API v3
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project
 3. Enable the **YouTube Data API v3**
 4. Create an API key in the Credentials section
-5. Copy your API key and add it to the `.env` file
+5. Copy your API key and add it to the `.env` file as `YOUTUBE_API_KEY`
+
+More video platforms will be supported in future versions.
 
 ## Running the Application
 
@@ -112,7 +115,7 @@ The API will be available at `http://localhost:8000`
 ### Chat Endpoint
 **POST** `/chat`
 
-Search for YouTube videos matching a query.
+Search for videos matching a query across integrated platforms.
 
 **Request Body:**
 ```json
@@ -161,7 +164,7 @@ Each video result includes:
 - **Backend Framework**: FastAPI
 - **Web Server**: Uvicorn
 - **Data Validation**: Pydantic
-- **External API**: Google YouTube Data API v3
+- **External APIs**: Google YouTube Data API v3 (with support for additional platforms)
 - **Environment Management**: python-dotenv
 
 ### Code Structure
@@ -172,10 +175,10 @@ Each video result includes:
 
 ## Troubleshooting
 
-### "YouTube API key is not set in environment variables"
-- Ensure your `.env` file exists and contains `YOUTUBE_API_KEY`
+### "Video API key is not set in environment variables"
+- Ensure your `.env` file exists and contains the required API keys
 - Make sure you're in the `backend` directory when running the server
-- Verify the API key is valid in the Google Cloud Console
+- Verify the API keys are valid in their respective provider consoles
 
 ### "Connection refused" on localhost:8000
 - Check if the uvicorn server is running
@@ -184,7 +187,7 @@ Each video result includes:
 
 ### No videos returned from search
 - Check your internet connection
-- Verify your YouTube API quota hasn't been exceeded
+- Verify your video platform API quotas haven't been exceeded
 - Try a simpler search query
 
 ## License
